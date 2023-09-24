@@ -2,12 +2,12 @@ version: '3'
 
 tasks:
   dev:
-    cmd: deno run --watch --allow-net --allow-read cmd/{{ .CMD }}/main.ts
+    cmd: deno run --allow-net --allow-read --allow-ffi --allow-env --unstable cmd/typhoon-awe/dev.ts
     silent: true
-    requires:
-      vars: [CMD]
+
   test:
     cmd: deno test -A --unstable --parallel --ignore=lib/libsql/ {{ .DIR }}
+
   htmx:
     cmds:
       - curl -L -o static/htmx.min.js https://unpkg.com/htmx.org@latest/dist/htmx.min.js
