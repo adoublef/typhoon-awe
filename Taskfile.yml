@@ -2,8 +2,13 @@ version: '3'
 
 tasks:
   dev:
-    cmd: deno run --allow-net --allow-read --allow-ffi --allow-env --unstable cmd/typhoon-awe/dev.ts
+    cmd: infisical run --env=dev -- deno run --allow-net --allow-read --allow-ffi --allow-env --unstable cmd/typhoon-awe/dev.ts
     silent: true
+
+  apply:
+    cmds: 
+      - infisical run --env=prod -- atlas schema apply --env=iam
+    # ENV with default as `dev`
 
   test:
     cmd: deno test -A --unstable --parallel --ignore=lib/libsql/ {{ .DIR }}
