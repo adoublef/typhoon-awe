@@ -12,4 +12,10 @@ Deno.test("get_profile()", async (test) => {
         assertExists(found);
         assertEquals(found.display, "adoublef");
     }));
+
+    await test.step("fail to get profile with login credentials", withClient(async (c) => {
+        await addUser(c, { display: "adoublef", login: "passw|1234567890", image: "avatar.example.com/adoublef" });
+        const found = await getProfile(c, "passw|123456789X");
+        assertEquals(found, undefined);
+    }));
 });
