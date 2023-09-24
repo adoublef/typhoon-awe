@@ -1,0 +1,7 @@
+{
+    "imports": {
+        "$std/": "https://deno.land/std@0.202.0/",
+        "$hono/": "https://deno.land/x/hono@v3.7.2/",
+        "~/deps.ts": "./deps.ts"
+    }
+}
