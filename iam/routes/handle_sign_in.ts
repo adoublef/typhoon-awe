@@ -1,7 +1,10 @@
 import { Handler } from "~/deps.ts";
 import { signIn } from "~/iam/deps.ts";
+import { IamEnv } from "~/iam/middleware.ts";
 
-export function handleSignIn(): Handler {
+export function handleSignIn<
+    E extends IamEnv = IamEnv
+>(): Handler<E> {
     return async ({ redirect, req, get, header }) => {
         const { headers } = await signIn(req.raw, get("iam"));
 

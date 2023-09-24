@@ -4,10 +4,14 @@ import { getGithubUser } from "~/iam/github/get_github_user.ts";
 import { getProfile } from "~/iam/libsql/get_profile.ts";
 import { setProfileBySession } from "~/iam/kv/set_profile_by_session.ts";
 import { addUser } from "~/iam/libsql/add_user.ts";
+import { IamEnv } from "~/iam/middleware.ts";
+import { DenoKvEnv, LibSqlEnv } from "~/middleware.ts";
 
-export function handleCallback(): Handler {
+export function handleCallback<
+    E extends IamEnv & LibSqlEnv & DenoKvEnv = IamEnv & LibSqlEnv & DenoKvEnv
+>(): Handler<E> {
     return async ({ redirect, req, header, get }) => {
-        const [kv, dao] = [get("kv"), get("dao")];
+        const [kv, dao] = [get("kv"), get("db")];
         const { response: { headers }, accessToken, sessionId } =
             await callback(req.raw, get("iam"));
 
