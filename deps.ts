@@ -12,6 +12,7 @@ export { parse } from "$valibot/src/methods/parse/parse.ts";
 export { transform } from "$valibot/src/methods/transform/transform.ts";
 export { object } from "$valibot/src/schemas/object/object.ts";
 export { string } from "$valibot/src/schemas/string/string.ts";
+export { } from "$valibot/src/schemas/number/number.ts";
 export type { Output } from "$valibot/src/types.ts";
 export { optional } from "$valibot/src/schemas/optional/optional.ts";
 export { nullable } from "$valibot/src/schemas/nullable/nullable.ts";
