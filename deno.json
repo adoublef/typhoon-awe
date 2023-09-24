@@ -10,8 +10,10 @@
         "$hono/": "https://deno.land/x/hono@v3.7.2/",
         "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.2/jsx/jsx-runtime.ts",
         "$libsql-client-ts/": "https://esm.sh/v132/@libsql/client@0.3.4/lib-esm/",
+        "$dax": "https://deno.land/x/dax@0.35.0/mod.ts",
         "~/deps.ts": "./deps.ts",
         "~/lib/": "./lib/",
-        "~/jsx/": "./jsx/"
+        "~/jsx/": "./jsx/",
+        "~/iam/": "./iam/"
     }
 }
