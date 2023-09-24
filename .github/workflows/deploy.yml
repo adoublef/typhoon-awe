@@ -29,5 +29,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
             project: "typhoon-awe"
-            entrypoint: "cmd/html/main.ts"
+            entrypoint: "cmd/typhoon-awe/main.ts"
             root: "."
