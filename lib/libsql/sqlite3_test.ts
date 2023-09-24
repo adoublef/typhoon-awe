@@ -20,7 +20,7 @@ function withClient(
     extraConfig: Partial<Config> = {},
 ): () => Promise<void> {
     return async () => {
-        const filename = `counter-${crypto.randomUUID()}.db`;
+        const filename = `libsql-${crypto.randomUUID()}.db`;
 
         const f = await Deno.create(`./${filename}`);
         const c = createClient({ url: `file:${filename}`, ...extraConfig });
