@@ -1,0 +1,8 @@
+version: '3'
+
+tasks:
+  dev:
+    cmd: deno run --watch --allow-net cmd/{{ .CMD }}/main.ts
+    silent: true
+    requires:
+      vars: [CMD]
