@@ -10,12 +10,12 @@ LIMIT 1`;
 
 export async function getProfile(c: Client, login: string): Promise<Profile | undefined> {
     try {
-        const rs = (await c.execute({ args: [login], sql })).rows.at(0);
-        if (!rs) {
+        const row = (await c.execute({ args: [login], sql })).rows.at(0);
+        if (!row) {
             return undefined;
         }
 
-        return parseProfile(rs);
+        return parseProfile(row);
     } catch (error) {
         throw new Error(`failed to get profile: ${error.message}`);
     }
