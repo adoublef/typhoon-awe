@@ -1,11 +1,13 @@
-import { Hono, logger } from "~/deps.ts";
+import { Hono, logger, serveStatic } from "~/deps.ts";
+import { handleIndex } from "./handle_index.tsx";
 
 if (import.meta.main) {
     const app = new Hono();
     app.use("*", logger());
     {
-        app.get("/", ({ text }) => text("Hello, World!"));
+        app.get("/", handleIndex());
     }
+    app.get("/static/*", serveStatic({ root: "./" }));
 
     await Deno.serve(app.fetch).finished;
 }
