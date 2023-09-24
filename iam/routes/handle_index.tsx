@@ -28,7 +28,7 @@ export function handleIndex<
                             <ul hx-boost={false}>
                                 <li><a href="/signin">signin</a></li>
                                 <li><a href="/signout">signout</a></li>
-                                <li><a href="/settings">settings</a></li>
+                                {/* <li><a href="/settings">settings</a></li> */}
                             </ul>
                         </nav>
                     </nav>
