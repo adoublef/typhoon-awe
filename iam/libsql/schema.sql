@@ -14,3 +14,5 @@ CREATE TABLE `credentials` (
     FOREIGN KEY (profile) REFERENCES `profiles` (id),
     PRIMARY KEY (profile, login) 
 );
+
+-- TODO email & password table
