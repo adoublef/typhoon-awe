@@ -1,5 +1,5 @@
 import { Hono, logger, serveStatic } from "~/deps.ts";
-import { handleIndex } from "./handle_index.tsx";
+import { handleIndex } from "../../iam/routes/handle_index.tsx";
 
 if (import.meta.main) {
     const app = new Hono();
