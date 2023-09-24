@@ -1,6 +1,6 @@
 import { Profile } from "~/iam/iam.ts";
 
-export async function getProfile(kv: Deno.Kv, sessionId: string, { id, ...profile }: Profile): Promise<void> {
+export async function setProfileBySession(kv: Deno.Kv, sessionId: string, { id, ...profile }: Profile): Promise<void> {
     const key = ["profiles_by_session", sessionId];
 
     const res = await kv.atomic()
