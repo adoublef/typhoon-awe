@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches: main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - 
+        name: 🧺 Clone Repository
+        uses: actions/checkout@v3
+      -
+        name: 🦖 Install Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      # -
+      #   name: 🛠️ Build Assests
+      -
+        name: 🚀 Upload & Deploy
+        uses: denoland/deployctl@v1
+        with:
+            project: "typhoon-awe"
+            entrypoint: "cmd/html/main.ts"
+            root: "."
