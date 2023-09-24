@@ -6,3 +6,5 @@ tasks:
     silent: true
     requires:
       vars: [CMD]
+  
+# act -s GITHUB_TOKEN="$(gh auth token)"
