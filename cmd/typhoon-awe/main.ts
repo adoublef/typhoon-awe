@@ -1,6 +1,6 @@
 import { Client, Hono, logger, serveStatic } from "~/deps.ts";
 import { app as iam } from "~/iam/service.ts";
-import { createClient } from "~/lib/libsql/deno.ts";
+import { createClient } from "$libsql-client-ts/web.js";
 import { getRequiredEnv } from "~/lib/env.ts";
 import { oauthClient as github } from "~/iam/github/oauth_client.ts";
 import { oauth, session } from "~/iam/middleware.ts";
