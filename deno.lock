@@ -2,16 +2,61 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:@types/node": "npm:@types/node@18.16.19"
+      "npm:@types/node": "npm:@types/node@18.16.19",
+      "npm:libsql@0.1.13": "npm:libsql@0.1.13"
     },
     "npm": {
+      "@libsql/darwin-arm64@0.1.13": {
+        "integrity": "sha512-mb89Ss/5rTKGJgjaKlQTHFwwZAb2xeD0qJuOQDGu1B2Mii2uM7qW8QpcptQdO2CssDs38daBtRj7tvV8Yj/EAQ==",
+        "dependencies": {}
+      },
+      "@libsql/linux-x64-gnu@0.1.13": {
+        "integrity": "sha512-hbJJHgQPN6oS6Cf2p12pkkb7URw6FLlupLBOF4JEYMNb7mh4wfJpGnNs2kaSewWcaZF73YVZQR053q1vrhAcVQ==",
+        "dependencies": {}
+      },
+      "@libsql/linux-x64-musl@0.1.13": {
+        "integrity": "sha512-sOH26OrQTNYeFmzxeaMrGQ+V6b32dllZdTDNIn45FK0ico9c1JX9LC9d0G2OCx36YODJnIFZJC2yqa5rK9+/xA==",
+        "dependencies": {}
+      },
+      "@neon-rs/load@0.0.4": {
+        "integrity": "sha512-kTPhdZyTQxB+2wpiRcFWrDcejc4JI6tkPuS7UZCG4l6Zvc5kU/gGQ/ozvHTh1XR5tS+UlfAfGuPajjzQjCiHCw==",
+        "dependencies": {}
+      },
       "@types/node@18.16.19": {
         "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
         "dependencies": {}
+      },
+      "detect-libc@2.0.2": {
+        "integrity": "sha512-UX6sGumvvqSaXgdKGUsgZWqcUyIXZ/vZTrlRT/iobiKhGL0zL4d3osHj3uqllWJK+i+sixDS/3COVEOFbupFyw==",
+        "dependencies": {}
+      },
+      "libsql@0.1.13": {
+        "integrity": "sha512-l1t2iDHUpDmw8uRJ6pY2eNkqlripFBe1uBrl4PqhLqhechDM4CacKzRRBPEaXKYRc9AbOmFgSF/3fikuB/xl5g==",
+        "dependencies": {
+          "@libsql/darwin-arm64": "@libsql/darwin-arm64@0.1.13",
+          "@libsql/linux-x64-gnu": "@libsql/linux-x64-gnu@0.1.13",
+          "@libsql/linux-x64-musl": "@libsql/linux-x64-musl@0.1.13",
+          "@neon-rs/load": "@neon-rs/load@0.0.4",
+          "detect-libc": "detect-libc@2.0.2"
+        }
       }
     }
   },
   "remote": {
+    "https://deno.land/std@0.202.0/assert/_constants.ts": "8a9da298c26750b28b326b297316cdde860bc237533b07e1337c021379e6b2a9",
+    "https://deno.land/std@0.202.0/assert/_diff.ts": "1a3c044aedf77647d6cac86b798c6417603361b66b54c53331b312caeb447aea",
+    "https://deno.land/std@0.202.0/assert/_format.ts": "a69126e8a469009adf4cf2a50af889aca364c349797e63174884a52ff75cf4c7",
+    "https://deno.land/std@0.202.0/assert/assert.ts": "9a97dad6d98c238938e7540736b826440ad8c1c1e54430ca4c4e623e585607ee",
+    "https://deno.land/std@0.202.0/assert/assert_array_includes.ts": "6856d7f2c3544bc6e62fb4646dfefa3d1df5ff14744d1bca19f0cbaf3b0d66c9",
+    "https://deno.land/std@0.202.0/assert/assert_equals.ts": "d8ec8a22447fbaf2fc9d7c3ed2e66790fdb74beae3e482855d75782218d68227",
+    "https://deno.land/std@0.202.0/assert/assert_exists.ts": "407cb6b9fb23a835cd8d5ad804e2e2edbbbf3870e322d53f79e1c7a512e2efd7",
+    "https://deno.land/std@0.202.0/assert/assert_is_error.ts": "c21113094a51a296ffaf036767d616a78a2ae5f9f7bbd464cd0197476498b94b",
+    "https://deno.land/std@0.202.0/assert/assert_object_match.ts": "d8fc2867cfd92eeacf9cea621e10336b666de1874a6767b5ec48988838370b54",
+    "https://deno.land/std@0.202.0/assert/assert_rejects.ts": "45c59724de2701e3b1f67c391d6c71c392363635aad3f68a1b3408f9efca0057",
+    "https://deno.land/std@0.202.0/assert/assertion_error.ts": "4d0bde9b374dfbcbe8ac23f54f567b77024fb67dbb1906a852d67fe050d42f56",
+    "https://deno.land/std@0.202.0/assert/equal.ts": "9f1a46d5993966d2596c44e5858eec821859b45f783a5ee2f7a695dfc12d8ece",
+    "https://deno.land/std@0.202.0/encoding/base64.ts": "144ae6234c1fbe5b68666c711dc15b1e9ee2aef6d42b3b4345bf9a6c91d70d0d",
+    "https://deno.land/std@0.202.0/fmt/colors.ts": "c51c4642678eb690dcf5ffee5918b675bf01a33fba82acf303701ae1a4f8c8d9",
     "https://deno.land/x/hono@v3.7.2/adapter/deno/serve-static.ts": "ba10cf6aaf39da942b0d49c3b9877ddba69d41d414c6551d890beb1085f58eea",
     "https://deno.land/x/hono@v3.7.2/compose.ts": "e55ed7be2134f363ff3c8e8e2f520ff682c6a11a47d7189100ed69704ce10b9e",
     "https://deno.land/x/hono@v3.7.2/context.ts": "33566796c27c3f6688db7cdb651d99fa8a5b694ad0d891148270b997f6682b95",
@@ -60,6 +105,18 @@
     "https://deno.land/x/hono@v3.7.2/utils/jwt/types.ts": "58ddf908f76ba18d9c62ddfc2d1e40cc2e306bf987409a6169287efa81ce2546",
     "https://deno.land/x/hono@v3.7.2/utils/mime.ts": "0105d2b5e8e91f07acc70f5d06b388313995d62af23c802fcfba251f5a744d95",
     "https://deno.land/x/hono@v3.7.2/utils/stream.ts": "1789dcc73c5b0ede28f83d7d34e47ae432c20e680907cb3275a9c9187f293983",
-    "https://deno.land/x/hono@v3.7.2/utils/url.ts": "5fc3307ef3cb2e6f34ec2a03e3d7f2126c6a9f5f0eab677222df3f0e40bd7567"
+    "https://deno.land/x/hono@v3.7.2/utils/url.ts": "5fc3307ef3cb2e6f34ec2a03e3d7f2126c6a9f5f0eab677222df3f0e40bd7567",
+    "https://esm.sh/v132/@libsql/client@0.3.4/denonext/lib-esm/api.js": "4b6a4e3701b3d4823c163c0f9dc0e1c1bf968e3e6ad8e7b9db9e4bf36de64b7a",
+    "https://esm.sh/v132/@libsql/client@0.3.4/denonext/lib-esm/config.js": "9e1bbd32f476a9826ffd575ab85f8eae2eee5612d48bdd11a176d773f1457575",
+    "https://esm.sh/v132/@libsql/client@0.3.4/denonext/lib-esm/http.js": "94f1da3d96c8932dda2f246a55b888c6447164bcbf951b472d2260d7d6a8fd00",
+    "https://esm.sh/v132/@libsql/client@0.3.4/denonext/lib-esm/ws.js": "eb7fdb5263da0517951e6f03484019dffb2e65725a11fdb53e8a92605e7169eb",
+    "https://esm.sh/v132/@libsql/client@0.3.4/lib-esm/api.js": "c47f908273c42cd203bb7fefc22fd6a6a63f77e5c49a9590e7044d089dfc531e",
+    "https://esm.sh/v132/@libsql/client@0.3.4/lib-esm/config.js": "46f6a4aedad119f9bb587f441af4538437d4fc3f21f62d26210018b48239bb7a",
+    "https://esm.sh/v132/@libsql/client@0.3.4/lib-esm/http": "c8546b6185b73335b029101552dac9f28b234210274ee4c1aa370da1b88dc5f8",
+    "https://esm.sh/v132/@libsql/client@0.3.4/lib-esm/ws": "bbca7074f9de5b13b44d2272343cac1a9ec06b6d3a40c77c1d1f184dba5f6b6f",
+    "https://esm.sh/v132/@libsql/hrana-client@0.5.2/denonext/hrana-client.mjs": "2b059e1bd4c9593200f7fb0ab5a4870feb5c9e74022ef9af6dbbe273482f65dc",
+    "https://esm.sh/v132/@libsql/isomorphic-fetch@0.1.7/denonext/isomorphic-fetch.mjs": "917d6cfe404156bfc132b7244dfca8e994a9da9c6563e04bc2e065cc8d8940a0",
+    "https://esm.sh/v132/@libsql/isomorphic-ws@0.1.5/denonext/isomorphic-ws.mjs": "5816c3f8906aa2070041429a17a5c69dfd90386f67e8f9a13ea860dc5010a6c5",
+    "https://esm.sh/v132/js-base64@3.7.5/denonext/js-base64.mjs": "d75fad7e1e294f521f73b0ccfa0935252ec663191ab8afd5ace9036552a5e44d"
   }
 }
