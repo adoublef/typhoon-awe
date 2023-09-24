@@ -7,7 +7,9 @@
         "$std/": "https://deno.land/std@0.202.0/",
         "$hono/": "https://deno.land/x/hono@v3.7.2/",
         "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.2/jsx/jsx-runtime.ts",
+        "$libsql-client-ts/": "https://esm.sh/v132/@libsql/client@0.3.4/lib-esm/",
         "~/deps.ts": "./deps.ts",
+        "~/lib/": "./lib/",
         "~/jsx/": "./jsx/"
     }
 }
