@@ -4,13 +4,13 @@ CREATE TABLE `profiles` (
     `name` TEXT,
     `image` TEXT,
     --
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE `credentials` (
     `profile` TEXT NOT NULL,
     `login` TEXT NOT NULL UNIQUE,
     -- 
-    FOREIGN KEY (`profile`) REFERENCES `profiles` (`id`),
-    PRIMARY KEY (`profile`, `login`) 
+    FOREIGN KEY (profile) REFERENCES `profiles` (id),
+    PRIMARY KEY (profile, login) 
 );
