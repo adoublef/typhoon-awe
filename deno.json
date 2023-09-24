@@ -13,6 +13,7 @@
         "$libsql-client-ts/": "https://esm.sh/v132/@libsql/client@0.3.4/lib-esm/",
         "$dax": "https://deno.land/x/dax@0.35.0/mod.ts",
         "~/deps.ts": "./deps.ts",
+        "~/middleware.ts": "./middleware.ts",
         "~/lib/": "./lib/",
         "~/jsx/": "./jsx/",
         "~/iam/": "./iam/"
