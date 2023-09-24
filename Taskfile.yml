@@ -7,7 +7,7 @@ tasks:
     requires:
       vars: [CMD]
   test:
-    cmd: deno test -A --unstable --parallel {{ .DIR }}
+    cmd: deno test -A --unstable --parallel --ignore=lib/libsql/ {{ .DIR }}
   htmx:
     cmds:
       - curl -L -o static/htmx.min.js https://unpkg.com/htmx.org@latest/dist/htmx.min.js
