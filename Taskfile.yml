@@ -2,7 +2,7 @@ version: '3'
 
 tasks:
   dev:
-    cmd: deno run --watch --allow-net cmd/{{ .CMD }}/main.ts
+    cmd: deno run --watch --allow-net --allow-read cmd/{{ .CMD }}/main.ts
     silent: true
     requires:
       vars: [CMD]
@@ -10,5 +10,3 @@ tasks:
     cmds:
       - curl -L -o static/htmx.min.js https://unpkg.com/htmx.org@latest/dist/htmx.min.js
       - curl -L -o static/hyperscript.min.js https://unpkg.com/hyperscript.org@latest/dist/_hyperscript.min.js
-  
-# act -s GITHUB_TOKEN="$(gh auth token)"
