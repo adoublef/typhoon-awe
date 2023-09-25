@@ -1,24 +1,11 @@
 import { Handler } from "~/deps.ts";
-import { DenoKvEnv } from "~/middleware.ts";
-import { SessionEnv } from "~/iam/middleware.ts";
-import { getProfileBySession } from "~/iam/kv/get_profile_by_session.ts";
+import { ProfileEnv } from "~/iam/middleware.ts";
 import { Html } from "~/jsx/dom/html.tsx";
 
 export function handleSettings<
-    E extends SessionEnv & DenoKvEnv = SessionEnv & DenoKvEnv
+    E extends ProfileEnv
 >(): Handler<E> {
-    return async ({ html, req, get, redirect }) => {
-        const sessionId = get("sessionId");
-
-        const profile = sessionId
-            ? await getProfileBySession(get("kv"), sessionId)
-            : undefined;
-
-        // if no profile then redirect to signin
-        if (!profile) {
-            return redirect("/signin");
-        }
-
+    return ({ html, req }) => {
         const head = {
             title: "Settings",
             baseUrl: new URL(req.url).origin
@@ -40,7 +27,6 @@ export function handleSettings<
                 <main>
                     <header>
                         <h1>settings</h1>
-                        <p>under review</p>
                     </header>
                 </main>
             </Html>
