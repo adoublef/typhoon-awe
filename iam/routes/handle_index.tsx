@@ -1,22 +1,18 @@
 import { Handler } from "~/deps.ts";
 import { Html } from "~/jsx/dom/html.tsx";
-import { SessionEnv } from "~/iam/middleware.ts";
+import { ProfileEnv, SessionEnv } from "~/iam/middleware.ts";
 import { DenoKvEnv } from "~/middleware.ts";
-import { getProfileBySession } from "~/iam/kv/get_profile_by_session.ts";
 import { Show } from "~/jsx/control_flow/show.tsx";
+import { Profile } from "~/iam/iam.ts";
 
 export function handleIndex<
-    E extends SessionEnv & DenoKvEnv = SessionEnv & DenoKvEnv
+    E extends SessionEnv & DenoKvEnv & ProfileEnv
 >(): Handler<E> {
-    return async ({ html, req, get }) => {
-        const sessionId = get("sessionId");
-
-        const profile = sessionId
-            ? await getProfileBySession(get("kv"), sessionId)
-            : undefined;
+    return /* async */ ({ html, req, get }) => {
+        // NOTE -- annoying the type can't be inferred
+        const profile = get("profile") as Profile | undefined
 
         const head = {
-            // Change depending on if profile exists
             title: profile ? `Welcome, ${profile.display}` : "Home",
             baseUrl: new URL(req.url).origin
         };
