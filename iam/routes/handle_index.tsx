@@ -26,17 +26,19 @@ export function handleIndex<
                     <nav>
                         <a href="/">home</a>
                         <nav>
-                            <Show when={profile} fallback={
-                                <ul hx-boost={false}>
+                            <ul hx-boost={false}>
+                                <Show when={profile} fallback={
                                     <li><a href="/signin">signin</a></li>
-                                </ul>
-                            }>
-                                {profile => (
-                                    <ul hx-boost={false}>
-                                        <li><a href="/signout">signout</a></li>
-                                    </ul>
-                                )}
-                            </Show>
+                                }>
+                                    {profile => (
+                                        <>
+                                            <li><a href="/signout">signout</a></li>
+                                            <li><a href="/">settings</a></li>
+                                        </>
+                                    )}
+
+                                </Show>
+                            </ul>
                         </nav>
                     </nav>
                 </header>
