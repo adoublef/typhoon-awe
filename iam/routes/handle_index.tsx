@@ -16,7 +16,8 @@ export function handleIndex<
             : undefined;
 
         const head = {
-            title: "Hello, World",
+            // Change depending on if profile exists
+            title: profile ? `Welcome, ${profile.display}` : "Home",
             baseUrl: new URL(req.url).origin
         };
 
@@ -33,7 +34,7 @@ export function handleIndex<
                                     {profile => (
                                         <>
                                             <li><a href="/signout">signout</a></li>
-                                            <li><a href="/">settings</a></li>
+                                            <li><a href="/settings">settings</a></li>
                                         </>
                                     )}
 
@@ -43,9 +44,11 @@ export function handleIndex<
                     </nav>
                 </header>
                 <main>
-                    <code>
-                        {profile && JSON.stringify(profile, null, 2)}
-                    </code>
+                    <header>
+                        <Show when={profile}>
+                            {profile => (<h1>welcome, {profile.display}</h1>)}
+                        </Show>
+                    </header>
                 </main>
             </Html>
         );
