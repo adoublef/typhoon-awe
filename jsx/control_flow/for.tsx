@@ -6,7 +6,7 @@ export function For<T, U extends HtmlEscapedString>({
     fallback,
     children,
 }: ForProps<T, U>): HtmlEscapedString {
-    if (!each.length) return fallback || html``;
+    if (!each.length) return html`${fallback}`;
     return html`${each.map(children)}`;
 }
 
