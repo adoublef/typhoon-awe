@@ -3,6 +3,7 @@ import { Html } from "~/jsx/dom/html.tsx";
 import { SessionEnv } from "~/iam/middleware.ts";
 import { DenoKvEnv } from "~/middleware.ts";
 import { getProfileBySession } from "~/iam/kv/get_profile_by_session.ts";
+import { Show } from "~/jsx/control_flow/show.tsx";
 
 export function handleIndex<
     E extends SessionEnv & DenoKvEnv = SessionEnv & DenoKvEnv
@@ -25,11 +26,17 @@ export function handleIndex<
                     <nav>
                         <a href="/">home</a>
                         <nav>
-                            <ul hx-boost={false}>
-                                <li><a href="/signin">signin</a></li>
-                                <li><a href="/signout">signout</a></li>
-                                {/* <li><a href="/settings">settings</a></li> */}
-                            </ul>
+                            <Show when={profile} fallback={
+                                <ul hx-boost={false}>
+                                    <li><a href="/signin">signin</a></li>
+                                </ul>
+                            }>
+                                {profile => (
+                                    <ul hx-boost={false}>
+                                        <li><a href="/signout">signout</a></li>
+                                    </ul>
+                                )}
+                            </Show>
                         </nav>
                     </nav>
                 </header>
@@ -42,3 +49,4 @@ export function handleIndex<
         );
     };
 }
+
