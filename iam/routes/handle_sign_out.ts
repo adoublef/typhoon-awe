@@ -9,6 +9,6 @@ export function handleSignOut<
         const { headers } = await signOut(req.raw);
         // signout use sessions(?)
         header("set-cookie", headers.get("set-cookie")!);
-        return redirect(headers.get("location")!);
+        return redirect("/",/* headers.get("location")! */);
     };
 }
