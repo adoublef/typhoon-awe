@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
         "jsx": "react-jsx",
-        "jsxImportSource": "hono/jsx",
-        "jsxFragmentFactory": "Fragment"
+        "jsxImportSource": "hono/jsx"
     },
     "imports": {
         "$std/": "https://deno.land/std@0.202.0/",
