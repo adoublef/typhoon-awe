@@ -2,8 +2,7 @@ import { Client, Hono, logger, serveStatic } from "~/deps.ts";
 import { app as iam } from "~/iam/service.ts";
 import { createClient } from "$libsql-client-ts/web.js";
 import { getRequiredEnv } from "~/lib/env.ts";
-import { oauthClient as github } from "../../iam/oauth/github_client.ts";
-import { oauth, session } from "~/iam/middleware.ts";
+import { session } from "~/iam/middleware.ts";
 import { denoKv, turso } from "~/middleware.ts";
 
 const sql = `SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?`;
@@ -24,7 +23,7 @@ if (import.meta.main) {
     const kv = await Deno.openKv();
 
     const app = new Hono();
-    app.use("*", logger(), session(), denoKv(kv), turso(db), oauth(github));
+    app.use("*", logger(), session(), denoKv(kv), turso(db));
     {
         app.route("/", iam);
     }
