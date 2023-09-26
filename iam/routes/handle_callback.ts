@@ -1,32 +1,37 @@
 import { Handler } from "~/deps.ts";
 import { callback } from "~/iam/deps.ts";
-import { getGithubUser } from "~/iam/github/get_github_user.ts";
 import { getProfile } from "~/iam/libsql/get_profile.ts";
 import { setProfileBySession } from "~/iam/kv/set_profile_by_session.ts";
 import { addUser } from "~/iam/libsql/add_user.ts";
 import { IamEnv } from "~/iam/middleware.ts";
 import { DenoKvEnv, LibSqlEnv } from "~/middleware.ts";
+import { getOAuthClient } from "~/iam/oauth/get_oauth_client.ts";
+import { getOAuthUser } from "~/iam/oauth/get_oauth_user.ts";
+import { getClientCookie } from "~/iam/oauth/cookie.ts";
 
 export function handleCallback<
-    E extends IamEnv & LibSqlEnv & DenoKvEnv = IamEnv & LibSqlEnv & DenoKvEnv
+    E extends IamEnv & LibSqlEnv & DenoKvEnv
 >(): Handler<E> {
-    return async ({ redirect, req, header, get }) => {
-        const [kv, dao] = [get("kv"), get("db")];
+    return async (c) => {
+        const clientName = getClientCookie(c);
+        const oauthClient = getOAuthClient(clientName);
+
         const { response: { headers }, accessToken, sessionId } =
-            await callback(req.raw, get("iam"));
+            await callback(c.req.raw, oauthClient);
 
-        const githubUser = await getGithubUser(accessToken);
-
-        const profile = await getProfile(dao, `github|${githubUser.id}`);
+        const [kv, dao] = [c.get("kv"), c.get("db")];
+        // FIXME -- anything that could fail, should have an escape hatch
+        const oauthUser = await getOAuthUser(clientName, accessToken);
+        const profile = await getProfile(dao, oauthUser.id);
         if (!profile) {
-            const profile = { display: githubUser.login, name: githubUser.name, image: githubUser.avatarUrl };
-            const id = await addUser(dao, { ...profile, login: `github|${githubUser.id}` });
+            const profile = { display: oauthUser.login, name: oauthUser.name, image: oauthUser.avatar };
+            const id = await addUser(dao, { ...profile, login: oauthUser.id });
             await setProfileBySession(kv, sessionId, { ...profile, id });
         } else {
             await setProfileBySession(kv, sessionId, profile);
         }
 
-        header("set-cookie", headers.get("set-cookie")!);
-        return redirect(headers.get("location")!);
+        c.header("set-cookie", headers.get("set-cookie")!, { append: true });
+        return c.redirect(headers.get("location")!);
     };
 }
