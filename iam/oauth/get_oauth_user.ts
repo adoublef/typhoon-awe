@@ -1,7 +1,8 @@
 import { number } from "$valibot/src/schemas/index.ts";
 import { transform, object, string, Output, parse } from "~/deps.ts";
+import { Provider } from "~/iam/oauth/provider.ts";
 
-export function getOAuthUser(clientName: "github" | "google", accessToken: string) {
+export function getOAuthUser(clientName: Provider, accessToken: string) {
     switch (clientName) {
         case "github": return getGithubUser(accessToken);
         case "google": return getGoogleUser(accessToken);
