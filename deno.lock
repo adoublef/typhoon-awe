@@ -159,6 +159,7 @@
     "https://deno.land/x/deno_kv_oauth@v0.7.0/deps.ts": "808083dd1f7c64b034682c029fbe7b8bd01ace9ac1dd362fd583a4319c8734e3",
     "https://deno.land/x/deno_kv_oauth@v0.7.0/lib/_core.ts": "109ad1a94f02b1d0b12668505b3b4b06fa979a5ab2df5fe6bba88b3118a7d3a1",
     "https://deno.land/x/deno_kv_oauth@v0.7.0/lib/create_github_oauth_config.ts": "3a0fe258e67efdc97875c8ec2f06cb0903381a797841edcc96c99db26f7ceb76",
+    "https://deno.land/x/deno_kv_oauth@v0.7.0/lib/create_google_oauth_config.ts": "1523add4ecb563dbc443e539d16e903b0cb38dba8d436f18efb1b699f7bb093f",
     "https://deno.land/x/deno_kv_oauth@v0.7.0/lib/get_required_env.ts": "67a4cffe8ae38c544304e3da834eb79c1735fa0c8d84d577c345f3e3f0be1c1b",
     "https://deno.land/x/deno_kv_oauth@v0.7.0/lib/get_session_id.ts": "691e67b97c1bc1278890701f3feb6137299b5635d3dd794ee78fb4c85b798d7b",
     "https://deno.land/x/deno_kv_oauth@v0.7.0/lib/handle_callback.ts": "c23a664c7842c2651c6c92f4b7a4b64d48b7f1127ccec8144a99fcac888ad974",
