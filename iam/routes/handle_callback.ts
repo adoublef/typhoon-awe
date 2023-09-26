@@ -3,14 +3,13 @@ import { callback } from "~/iam/deps.ts";
 import { getProfile } from "~/iam/libsql/get_profile.ts";
 import { setProfileBySession } from "~/iam/kv/set_profile_by_session.ts";
 import { addUser } from "~/iam/libsql/add_user.ts";
-import { IamEnv } from "~/iam/middleware.ts";
 import { DenoKvEnv, LibSqlEnv } from "~/middleware.ts";
 import { getOAuthClient } from "~/iam/oauth/get_oauth_client.ts";
 import { getOAuthUser } from "~/iam/oauth/get_oauth_user.ts";
 import { getClientCookie } from "~/iam/oauth/cookie.ts";
 
 export function handleCallback<
-    E extends IamEnv & LibSqlEnv & DenoKvEnv
+    E extends LibSqlEnv & DenoKvEnv
 >(): Handler<E> {
     return async (c) => {
         const clientName = getClientCookie(c);
