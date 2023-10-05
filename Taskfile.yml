@@ -1,8 +1,13 @@
 version: '3'
 
 tasks:
+  cache:
+    cmd: deno cache deps.ts 
+
   dev:
-    cmd: infisical run --env=dev -- deno run --allow-net --allow-read --allow-ffi --allow-env --unstable cmd/typhoon-awe/dev.ts
+    deps:
+    - cache
+    cmd: deno run -A --unstable cmd/typhoon-awe/dev.ts
     silent: true
 
   apply:
