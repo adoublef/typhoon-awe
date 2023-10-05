@@ -1,5 +1,11 @@
 import { Client, MiddlewareHandler, LibsqlError } from "~/deps.ts";
 
+export type TursoEnv = {
+    Variables: {
+        db: Client;
+    };
+}
+
 /**
  * Turso will add an instance of db connection to the request context
  */
