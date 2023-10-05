@@ -1,13 +1,13 @@
 /* hono */
-export { Hono, HTTPException } from "$hono/mod.ts";
-export type {
-    Handler,
-    MiddlewareHandler,
-    ErrorHandler,
-    NotFoundHandler,
-    Env,
-    Variables
-} from "$hono/types.ts";
+export {
+    Hono
+    , HTTPException
+    , type Handler
+    , type MiddlewareHandler
+    , type ErrorHandler
+    , type NotFoundHandler
+    , type Env
+} from "$hono/mod.ts";
 export { logger } from "$hono/middleware/logger/index.ts";
 export type { HtmlEscapedString } from "$hono/utils/html.ts";
 export { html } from "$hono/helper/html/index.ts";
@@ -31,11 +31,11 @@ export {
     , string
     , number
     , custom
-    , type Output
+    , maxBytes
     , optional
     , nullable
     , nullish
-    , maxBytes
+    , type Output
 } from "$valibot/mod.ts";
 /* std */
 export type { Cookie } from "$std/http/cookie.ts";

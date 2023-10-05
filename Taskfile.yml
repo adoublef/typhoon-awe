@@ -2,7 +2,7 @@ version: '3'
 
 tasks:
   test:
-    cmd: deno test -A --unstable --parallel --ignore=lib/libsql/ {{ .DIR }}
+    cmd: deno test -A --unstable --parallel --ignore=lib/libsql/ {{.CLI_ARGS}}
 
   cache:
     cmd: deno cache deps.ts 
@@ -15,9 +15,9 @@ tasks:
 
   env:
     cmds:
-      - infisical secrets --env=dev --path=typhoon-awe {{.CLI_ARGS}}
+      - infisical secrets --path=typhoon-awe --env=dev {{.CLI_ARGS}}
 
+  # Move this to deploy in gh action maybe?
   turso:
     cmds: 
       - infisical run --path=typhoon-awe --env=prod -- atlas schema apply --env=iam
-    # ENV with default as `dev`
