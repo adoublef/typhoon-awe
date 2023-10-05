@@ -1,5 +1,5 @@
 /* std */
-export { encode } from "$std/encoding/base64.ts";
+export { encodeBase64 } from "$std/encoding/base64.ts";
 /* libsql */
 export {
     LibsqlError,
@@ -14,12 +14,12 @@ export {
     type Transaction,
     type TransactionMode,
     type Value,
-} from "$libsql-client-ts/api.js";
+} from "$libsql/api";
 export {
     expandConfig,
     type ExpandedConfig,
-} from "$libsql-client-ts/config.js";
-export { _createClient as _createWsClient } from "$libsql-client-ts/ws";
-export { _createClient as _createHttpClient } from "$libsql-client-ts/http";
+} from "$libsql/config";
+export { _createClient as _createWsClient } from "$libsql/ws";
+export { _createClient as _createHttpClient } from "$libsql/http";
 import Database from "npm:libsql@0.1.13";
 export { Database };
