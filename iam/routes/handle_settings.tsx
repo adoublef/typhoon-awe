@@ -1,34 +1,42 @@
 import { Handler } from "~/deps.ts";
-import { ProfileEnv } from "~/iam/middleware.ts";
 import { Html } from "~/jsx/dom/html.tsx";
+import { ProfileEnv } from "~/iam/iam.ts";
 
 export function handleSettings<
     E extends ProfileEnv
 >(): Handler<E> {
-    return ({ html, req }) => {
-        const head = {
-            title: "Settings",
-            baseUrl: new URL(req.url).origin
-        };
-
-        return html(
-            <Html head={head}>
+    return (c) => {
+        return c.html(
+            <Html head={{ title: "Settings" }}>
                 <header>
                     <nav>
-                        <a href="/">home</a>
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><a href="/signout">Signout</a></li>
+                                    <li><a href="/settings">Settings</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                         <nav>
-                            <ul hx-boost={false}>
-                                <li><a href="/signout">signout</a></li>
-                                <li><a href="/settings">settings</a></li>
-                            </ul>
                         </nav>
                     </nav>
                 </header>
                 <main>
-                    <header>
-                        <h1>settings</h1>
-                    </header>
+                    <hgroup>
+                        <h1>Settings</h1>
+                        <h2>Still under construction 👷🏿</h2>
+                    </hgroup>
                 </main>
+                <footer>
+                    <small hx-boost={false}>
+                        Powered by <a href="https://deno.com">Deno</a>.
+                        Source code on <a href="https://github.com/adoublef/ringed-crow">GitHub</a>
+                    </small>
+                </footer>
             </Html>
         );
     };
