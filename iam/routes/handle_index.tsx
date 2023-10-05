@@ -1,53 +1,61 @@
 import { Handler } from "~/deps.ts";
 import { Html } from "~/jsx/dom/html.tsx";
-import { ProfileEnv, SessionEnv } from "~/iam/middleware.ts";
 import { Show } from "~/jsx/control_flow/show.tsx";
-import { Profile } from "~/iam/iam.ts";
+import { Profile, ProfileEnv, SessionEnv } from "~/iam/iam.ts";
+import { DenoKvEnv } from "~/lib/kv/deno_kv.ts";
 
 export function handleIndex<
     E extends SessionEnv & DenoKvEnv & ProfileEnv
 >(): Handler<E> {
-    return /* async */ ({ html, req, get }) => {
+    return /* async */ (c) => {
         // NOTE -- annoying the type can't be inferred
-        const profile = get("profile") as Profile | undefined
+        const profile = c.get("profile") as Profile | undefined;
 
         const head = {
             title: profile ? `Welcome, ${profile.display}` : "Home",
-            baseUrl: new URL(req.url).origin
         };
 
-        return html(
+        return c.html(
             <Html head={head}>
                 <header>
                     <nav>
-                        <a href="/">home</a>
-                        <nav>
-                            <ul hx-boost={false}>
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
                                 <Show when={profile} fallback={
-                                    <>
-                                        <li><a href="/signin?v=google">google signin</a></li>
-                                        <li><a href="/signin?v=github">github signin</a></li>
-                                    </>
+                                    <ul hx-boost={false}>
+                                        <li><a href="/signin?v=google">Google Signin</a></li>
+                                        <li><a href="/signin?v=github">GitHub Signin</a></li>
+                                    </ul>
                                 }>
                                     {_profile => (
-                                        <>
-                                            <li><a href="/signout">signout</a></li>
-                                            <li><a href="/settings">settings</a></li>
-                                        </>
+                                        <ul>
+                                            <li><a href="/signout">Signout</a></li>
+                                            <li><a href="/settings">Settings</a></li>
+                                        </ul>
                                     )}
 
                                 </Show>
-                            </ul>
-                        </nav>
+                            </li>
+                        </ul>
                     </nav>
                 </header>
                 <main>
-                    <header>
-                        <Show when={profile}>
+                    <hgroup>
+                        <Show when={profile} fallback={<h1>Welcome</h1>}>
                             {profile => (<h1>welcome, {profile.display}</h1>)}
                         </Show>
-                    </header>
+                        <h2>Still under construction 👷🏿</h2>
+                    </hgroup>
                 </main>
+                <footer>
+                    <small hx-boost={false}>
+                        Powered by <a href="https://deno.com">Deno</a>.
+                        Source code on <a href="https://github.com/adoublef/ringed-crow">GitHub</a>
+                    </small>
+                </footer>
             </Html>
         );
     };
