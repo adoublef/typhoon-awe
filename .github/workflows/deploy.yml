@@ -5,7 +5,28 @@ on:
     branches: main
 
 jobs:
+  # https://atlasgo.io/cloud/setup-ci#step-4-test-the-action
+  migrate:
+    name: Turso Migration
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: "${{ secrets.DATABASE_URL }}?authToken=${{ secrets.TURSO_TOKEN }}"
+
+    steps:
+      - 
+        name: 🧺 Clone Repository
+        uses: actions/checkout@v3  
+      - name: Deploy Atlas Migrations
+        uses: ariga/atlas-deploy-action@v0
+        with:
+          url: $DATABASE_URL
+          cloud-token: ${{ secrets.ATLAS_CLOUD_TOKEN }}
+          cloud-dir: typhoon-awe
+    
   deploy:
+    needs:
+      - migrate
     name: Deploy
     runs-on: ubuntu-latest
 
