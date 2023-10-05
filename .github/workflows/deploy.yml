@@ -17,12 +17,14 @@ jobs:
       - 
         name: 🧺 Clone Repository
         uses: actions/checkout@v3  
-      - name: Deploy Atlas Migrations
-        uses: ariga/atlas-deploy-action@v0
-        with:
-          url: $DATABASE_URL
-          cloud-token: ${{ secrets.ATLAS_CLOUD_TOKEN }}
-          cloud-dir: typhoon-awe
+      - 
+        name: Deploy Atlas Migrations
+        uses: ariga/setup-atlas@master
+      -
+        run: atlas schema apply --env=iam --auto-approve
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TURSO_TOKEN: ${{ secrets.TURSO_TOKEN }}
     
   deploy:
     needs:

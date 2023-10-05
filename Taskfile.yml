@@ -17,7 +17,7 @@ tasks:
 
   env:
     cmds:
-      - infisical secrets --path=typhoon-awe --env=dev {{.CLI_ARGS}}
+      - infisical secrets --path=typhoon-awe {{.CLI_ARGS}}
 
   # Move this to deploy in gh action maybe?
   turso:
