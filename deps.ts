@@ -21,6 +21,7 @@ export {
 } from "$hono/helper.ts";
 export type { CookieOptions } from "$hono/utils/cookie.ts";
 /* libsql */
+export { createClient } from "$libsql/web";
 export { type Client, LibsqlError } from "$libsql/api";
 /* valibot */
 export {
