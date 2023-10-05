@@ -7,7 +7,7 @@ import {
     Database,
     Client,
     Config,
-    encode,
+    encodeBase64 as encode,
     ExpandedConfig,
     InStatement,
     InValue,
