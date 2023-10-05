@@ -1,6 +1,9 @@
 version: '3'
 
 tasks:
+  test:
+    cmd: deno test -A --unstable --parallel --ignore=lib/libsql/ {{ .DIR }}
+
   cache:
     cmd: deno cache deps.ts 
 
@@ -14,11 +17,3 @@ tasks:
     cmds: 
       - infisical run --env=prod -- atlas schema apply --env=iam
     # ENV with default as `dev`
-
-  test:
-    cmd: deno test -A --unstable --parallel --ignore=lib/libsql/ {{ .DIR }}
-
-  htmx:
-    cmds:
-      - curl -L -o static/htmx.min.js https://unpkg.com/htmx.org@latest/dist/htmx.min.js
-      - curl -L -o static/hyperscript.min.js https://unpkg.com/hyperscript.org@latest/dist/_hyperscript.min.js
