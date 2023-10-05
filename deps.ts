@@ -35,6 +35,7 @@ export {
     , optional
     , nullable
     , nullish
+    , ulid
     , type Output
 } from "$valibot/mod.ts";
 /* std */
