@@ -1,5 +1,5 @@
 import { Client, createClient } from "~/lib/libsql/mod.ts";
-import dax from "$dax";
+import dax from "https://deno.land/x/dax@0.35.0/mod.ts";
 
 export function withClient(
     fn: (c: Client) => Promise<void>,
