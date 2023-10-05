@@ -11,24 +11,10 @@ import {
 } from "~/deps.ts";
 import { Html } from "~/jsx/dom/html.tsx";
 
-export function handleIndex(): Handler {
-    const dto = object({
-        q: optional(string([maxBytes(8)]))
-    });
-
-    const parseDto = (data: unknown): Output<typeof dto> => {
-        try {
-            return parse(dto, data);
-        } catch (error) {
-            throw new HTTPException(Status.BadRequest, { message: "error parsing dto" });
-        }
-    };
-
-    return c => {
-        const { q: name } = parseDto(c.req.query());
-
+export function handleError(): Handler {
+    return (c) => {
         return c.html(
-            <Html head={{ title: "Home" }}>
+            <Html head={{ title: "Oh, no!" }}>
                 <header>
                     <nav>
                         <ul>
@@ -44,9 +30,9 @@ export function handleIndex(): Handler {
                 <main>
                     <hgroup>
                         <h1>
-                            Hello, {name ?? "world"}!
+                            Oh, no!
                         </h1>
-                        <h2>Still under construction 👷🏿</h2>
+                        <h2>Looks like we found an error</h2>
                     </hgroup>
                 </main>
                 <footer>
@@ -55,7 +41,7 @@ export function handleIndex(): Handler {
                         Source code on <a href="https://github.com/adoublef/ringed-crow">GitHub</a>
                     </small>
                 </footer>
-            </Html>
+            </Html >
         );
     };
 }

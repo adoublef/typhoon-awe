@@ -4,7 +4,7 @@ import { Html } from "~/jsx/dom/html.tsx";
 export function handleAbout(): Handler {
     return c => {
         return c.html(
-            <Html head={{ title: "Home", baseUrl: c.req.url }}>
+            <Html head={{ title: "About" }}>
                 <header>
                     <nav>
                         <ul>
@@ -24,7 +24,7 @@ export function handleAbout(): Handler {
                     </hgroup>
                 </main>
                 <footer>
-                    <small>Powered by <a hx-boost={false} href="https://deno.com">Deno</a></small>
+                    <small hx-boost={false}>Powered by <a href="https://deno.com">Deno</a></small>
                 </footer>
             </Html>
         );
