@@ -24,7 +24,10 @@ export function handleAbout(): Handler {
                     </hgroup>
                 </main>
                 <footer>
-                    <small hx-boost={false}>Powered by <a href="https://deno.com">Deno</a></small>
+                    <small hx-boost={false}>
+                        Powered by <a href="https://deno.com">Deno</a>.
+                        Source code on <a href="https://github.com/adoublef/typhoon-awe">GitHub</a>
+                    </small>
                 </footer>
             </Html>
         );
