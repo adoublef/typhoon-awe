@@ -10,10 +10,14 @@ tasks:
   dev:
     deps:
     - cache
-    cmd: deno run -A --unstable cmd/typhoon-awe/dev.ts
+    cmd: infisical run --path=typhoon-awe --env=dev -- deno run -A --unstable cmd/typhoon-awe/dev.ts
     silent: true
 
-  apply:
+  env:
+    cmds:
+      - infisical secrets --env=dev --path=typhoon-awe {{.CLI_ARGS}}
+
+  turso:
     cmds: 
-      - infisical run --env=prod -- atlas schema apply --env=iam
+      - infisical run --path=typhoon-awe --env=prod -- atlas schema apply --env=iam
     # ENV with default as `dev`
