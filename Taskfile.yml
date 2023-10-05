@@ -9,8 +9,10 @@ tasks:
 
   dev:
     deps:
-    - cache
-    cmd: infisical run --path=typhoon-awe --env=dev -- deno run -A --unstable cmd/typhoon-awe/dev.ts
+      - cache
+    cmds: 
+      - atlas schema apply --env=local --auto-approve
+      - infisical run --path=typhoon-awe --env=dev -- deno run -A --unstable cmd/typhoon-awe/dev.ts
     silent: true
 
   env:
