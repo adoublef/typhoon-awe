@@ -1,13 +1,13 @@
 import { assertEquals } from "$std/assert/assert_equals.ts";
 import { assertArrayIncludes } from "$std/assert/assert_array_includes.ts";
 import {
-    Client,
-    Config,
-    LibsqlError,
-    Row,
-    IntMode,
-    Value,
-    InValue,
+    Client
+    ,Config
+    ,LibsqlError
+    ,Row
+    ,IntMode
+    ,Value
+    ,InValue
 } from "~/lib/libsql/deps.ts";
 import { createClient } from "./sqlite3.ts";
 import { assertRejects } from "$std/assert/assert_rejects.ts";
