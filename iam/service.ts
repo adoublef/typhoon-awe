@@ -4,7 +4,7 @@ import { handleSignIn } from "~/iam/routes/handle_sign_in.ts";
 import { handleSignOut } from "~/iam/routes/handle_sign_out.ts";
 import { handleIndex } from "~/iam/routes/handle_index.tsx";
 import { handleSettings } from "~/iam/routes/handle_settings.tsx";
-import { profile } from "~/iam/middleware.ts";
+import { profile } from "~/iam/iam.ts";
 
 /**
  * - `GET /`
