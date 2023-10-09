@@ -16,7 +16,7 @@ jobs:
     steps:
       - 
         name: 🧺 Clone Repository
-        uses: actions/checkout@v3  
+        uses: actions/checkout@v4  
       - 
         name: Deploy Atlas Migrations
         uses: ariga/setup-atlas@master
@@ -39,7 +39,7 @@ jobs:
     steps:
       - 
         name: 🧺 Clone Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: 🦖 Install Deno
         uses: denoland/setup-deno@v1
