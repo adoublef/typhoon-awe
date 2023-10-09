@@ -6,9 +6,11 @@ import { ping, turso } from "~/lib/turso.ts";
 import { serve } from "~/lib/serve.ts";
 import { handleAbout } from "./handle_about.tsx";
 import { handleError } from "./handle_error.tsx";
-import { session } from "~/iam/iam.ts";
+import { profile, session } from "~/iam/iam.ts";
 
-if (import.meta.main) {
+if (
+    import.meta.main
+) {
     const db = createClient({ url: env("DATABASE_URL"), authToken: env("TURSO_TOKEN") });
     await ping(db);
 
@@ -19,7 +21,7 @@ if (import.meta.main) {
         .onError((_, c) => c.redirect("/ouch"));
     {
         app.route("/", iam);
-        app.get("/about", handleAbout());
+        app.get("/about", profile(), handleAbout());
         app.get("/ouch", handleError());
     }
 
