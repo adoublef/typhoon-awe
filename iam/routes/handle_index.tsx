@@ -25,18 +25,19 @@ export function handleIndex<
                             </li>
                             <li>
                                 <Show when={profile} fallback={
-                                    <ul hx-boost={false}>
-                                        <li><a href="/signin?v=google">Google Signin</a></li>
-                                        <li><a href="/signin?v=github">GitHub Signin</a></li>
+                                    <ul>
+                                        <li><a hx-boost={false} href="/signin?v=google">Google Signin</a></li>
+                                        <li><a hx-boost={false} href="/signin?v=github">GitHub Signin</a></li>
+                                        <li><a href="/about">About</a></li>
                                     </ul>
                                 }>
                                     {_profile => (
                                         <ul>
                                             <li><a href="/signout">Signout</a></li>
                                             <li><a href="/settings">Settings</a></li>
+                                            <li><a href="/about">About</a></li>
                                         </ul>
                                     )}
-
                                 </Show>
                             </li>
                         </ul>
@@ -45,7 +46,7 @@ export function handleIndex<
                 <main>
                     <hgroup>
                         <Show when={profile} fallback={<h1>Welcome</h1>}>
-                            {profile => (<h1>welcome, {profile.display}</h1>)}
+                            {profile => (<h1>Welcome, {profile.display}</h1>)}
                         </Show>
                         <h2>Still under construction 👷🏿</h2>
                     </hgroup>

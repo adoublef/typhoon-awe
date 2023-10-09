@@ -1,5 +1,4 @@
-import { Handler } from "~/deps.ts";
-import { callback } from "~/iam/deps.ts";
+import { Handler, callback } from "~/deps.ts";
 import { getProfile } from "~/iam/libsql/get_profile.ts";
 import { setProfileBySession } from "~/iam/kv/set_profile_by_session.ts";
 import { addUser } from "~/iam/libsql/add_user.ts";
@@ -16,12 +15,12 @@ export function handleCallback<
         const clientName = getClientCookie(c);
         const oauthClient = getOAuthClient(clientName);
 
-        const { response: { headers }, accessToken, sessionId } =
+        const { response: { headers }, tokens, sessionId } =
             await callback(c.req.raw, oauthClient);
 
         const [kv, dao] = [c.get("kv"), c.get("db")];
         // FIXME -- anything that could fail, should have an escape hatch
-        const oauthUser = await getOAuthUser(clientName, accessToken);
+        const oauthUser = await getOAuthUser(clientName, tokens.accessToken);
         const profile = await getProfile(dao, oauthUser.id);
         if (!profile) {
             const profile = { display: oauthUser.login, name: oauthUser.name, image: oauthUser.avatar };

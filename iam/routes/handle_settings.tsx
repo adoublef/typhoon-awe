@@ -18,6 +18,7 @@ export function handleSettings<
                                 <ul>
                                     <li><a href="/signout">Signout</a></li>
                                     <li><a href="/settings">Settings</a></li>
+                                    <li><a href="/about">About</a></li>
                                 </ul>
                             </li>
                         </ul>

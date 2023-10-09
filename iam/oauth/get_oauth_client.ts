@@ -1,4 +1,4 @@
-import { OAuth2ClientConfig, createGitHubOAuthConfig, createGoogleOAuthConfig } from "~/iam/deps.ts";
+import { OAuth2ClientConfig, createGitHubOAuthConfig, createGoogleOAuthConfig } from "~/deps.ts";
 import { env } from "~/lib/env.ts";
 import { Provider } from "~/iam/oauth/provider.ts";
 

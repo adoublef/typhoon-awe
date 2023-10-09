@@ -1,8 +1,14 @@
 import { Handler } from "~/deps.ts";
 import { Html } from "~/jsx/dom/html.tsx";
+import { ProfileEnv, Profile } from "~/iam/iam.ts";
+import { Show } from "~/jsx/control_flow/show.tsx";
 
-export function handleAbout(): Handler {
+export function handleAbout<
+    E extends ProfileEnv
+>(): Handler<E> {
     return c => {
+        const profile = c.get("profile") as Profile | undefined;
+
         return c.html(
             <Html head={{ title: "About" }}>
                 <header>
@@ -12,7 +18,21 @@ export function handleAbout(): Handler {
                                 <a href="/">Home</a>
                             </li>
                             <li>
-                                <a href="/about">About</a>
+                                <Show when={profile} fallback={
+                                    <ul>
+                                        <li><a hx-boost={false} href="/signin?v=google">Google Signin</a></li>
+                                        <li><a hx-boost={false} href="/signin?v=github">GitHub Signin</a></li>
+                                        <li><a href="/about">About</a></li>
+                                    </ul>
+                                }>
+                                    {_profile => (
+                                        <ul>
+                                            <li><a href="/signout">Signout</a></li>
+                                            <li><a href="/settings">Settings</a></li>
+                                            <li><a href="/about">About</a></li>
+                                        </ul>
+                                    )}
+                                </Show>
                             </li>
                         </ul>
                     </nav>

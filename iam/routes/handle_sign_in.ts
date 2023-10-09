@@ -1,5 +1,4 @@
-import { Handler } from "~/deps.ts";
-import { signIn } from "~/iam/deps.ts";
+import { Handler, signIn } from "~/deps.ts";
 import { getOAuthClient } from "~/iam/oauth/get_oauth_client.ts";
 import { setClientCookie } from "~/iam/oauth/cookie.ts";
 import { parseProvider } from "~/iam/oauth/provider.ts";
