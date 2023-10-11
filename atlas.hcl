@@ -20,7 +20,8 @@ env "iam" {
 }
 
 env "local" {
-    url = "sqlite://typhoon-awe.db?_fk=1"
+    // can't use env key here
+    url = "sqlite://local.db?_fk=1"
     dev = "sqlite://dev?mode=memory"
     src = local.src
 }
