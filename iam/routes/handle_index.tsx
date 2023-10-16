@@ -1,6 +1,5 @@
-import { Handler } from "~/deps.ts";
+import { Handler, Show } from "~/deps.ts";
 import { Html } from "~/jsx/dom/html.tsx";
-import { Show } from "~/jsx/control_flow/show.tsx";
 import { Profile, ProfileEnv, SessionEnv } from "~/iam/iam.ts";
 import { DenoKvEnv } from "~/lib/kv/deno_kv.ts";
 

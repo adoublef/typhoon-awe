@@ -1,8 +1,6 @@
 import { html, HtmlEscapedString } from "~/deps.ts";
 
-const api =
-    "https://assets.adoublef.dev"; 
-    // "http://localhost:4507";
+const api = "https://assets.adoublef.dev"; 
 
 export const Html = ({
     head: { title },
@@ -18,8 +16,8 @@ export const Html = ({
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title}</title>
-    <link rel="preload" as="font" href="${api}/fonts/v/space_grotesk.woff2" type="font/woff2" />
-    <link rel="preload" as="font" href="${api}/fonts/v/lexend.woff2" type="font/woff2"  />
+    <link rel="preload" as="font" href="${api}/fonts/v/space_grotesk.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="${api}/fonts/v/lexend.woff2" type="font/woff2" crossorigin />
     <link rel="preload" as="script" href="${api}/scripts/htmx.min.js" />
     <link rel="preload" as="script" href="${api}/scripts/hyperscript.min.js" />
     <link rel="stylesheet" href="${api}/stylesheets/index.css">
