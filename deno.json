@@ -4,17 +4,18 @@
         "jsxImportSource": "hono/jsx"
     },
     "imports": {
-        "$std/": "https://deno.land/std@0.203.0/",
-        "$ulid/": "https://deno.land/x/ulid@v0.3.0/",
-        "$valibot/": "https://deno.land/x/valibot@v0.18.0/",
-        "$deno_kv_oauth/": "https://deno.land/x/deno_kv_oauth@v0.9.1/",
-        "$hono/": "https://deno.land/x/hono@v3.7.3/",
-        "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.3/jsx/jsx-runtime.ts",
-        "$libsql/": "https://esm.sh/v132/@libsql/client@0.3.5/lib-esm/",
         "~/deps.ts": "./deps.ts",
         "~/middleware.ts": "./middleware.ts",
         "~/lib/": "./lib/",
         "~/jsx/": "./jsx/",
-        "~/iam/": "./iam/"
+        "~/iam/": "./iam/",
+        "$adoublef/": "https://deno.land/x/adoublef@0.0.9/",
+        "$ulid/": "https://deno.land/x/ulid@v0.3.0/",
+        "$valibot/": "https://deno.land/x/valibot@v0.18.0/",
+        "$deno_kv_oauth/": "https://deno.land/x/deno_kv_oauth@v0.9.1/",
+        "$hono/": "https://deno.land/x/hono@v3.7.6/",
+        "hono/jsx/jsx-runtime": "https://deno.land/x/hono@v3.7.6/jsx/jsx-runtime.ts",
+        "$libsql/": "https://esm.sh/v132/@libsql/client@0.3.5/lib-esm/",
+        "$std/": "https://deno.land/std@0.203.0/"
     }
 }

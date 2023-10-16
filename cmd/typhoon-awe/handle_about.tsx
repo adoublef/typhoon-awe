@@ -1,7 +1,6 @@
-import { Handler } from "~/deps.ts";
+import { Handler, Show } from "~/deps.ts";
 import { Html } from "~/jsx/dom/html.tsx";
 import { ProfileEnv, Profile } from "~/iam/iam.ts";
-import { Show } from "~/jsx/control_flow/show.tsx";
 
 export function handleAbout<
     E extends ProfileEnv

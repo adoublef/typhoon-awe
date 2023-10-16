@@ -1,7 +1,7 @@
 import { env } from "~/lib/env.ts";
 import { Hono, logger } from "~/deps.ts";
 import { app as iam } from "~/iam/service.ts";
-import { createClient } from "~/lib/libsql/deno.ts";
+import { createClient } from "$adoublef/libsql/mod.ts";
 import { denoKv } from "~/lib/kv/deno_kv.ts";
 import { ping, turso } from "~/lib/turso.ts";
 import { serve } from "~/lib/serve.ts";
